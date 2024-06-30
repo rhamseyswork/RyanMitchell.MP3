@@ -1,0 +1,19 @@
+# This is a basic example Blueprint for a Django web service and
+# the PostgreSQL database it connects to.
+services:
+  - type: web
+    plan: Starter
+    name: Ryanmitchell.mp3
+    runtime: node
+    repo: https://github.com/rhamseyswork/Ryan-Mitch-MP3/tree/Ryanmitchell.mp3
+    buildCommand: "./onRender/build.sh"
+    startCommand: "npm start"
+#     envVars:
+#       - key: MONGO_URI
+#         fromDatabase:
+#           name: Mongoose-db
+#           property: connectionString
+
+# databases:
+#   - name: SQL-db # A PostgreSQL database named django-app-db running on a free instance
+#     plan: Starter

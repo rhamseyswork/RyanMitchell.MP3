@@ -1,0 +1,55 @@
+{
+  "name": "Ryanmitchell.mp3",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "_comment": "npm install --save-dev concurrently",
+  "scripts": {
+    "start-test": "echo 'Running tests...' && chmod +x test.sh && ./test.sh",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node backEnd/server.js",
+    "server": "nodemon backEnd/server.js",
+    "client": "npm start --prefix client",
+    "prod": "npm run lint && npm run build && npm run server:prod",
+    "server:prod": "cross-env NODE_ENV=production node backEnd/server.js",
+    "build": "npm install && npm install --prefix client --legacy-peer-deps && npm run build --prefix client && mkdir -p dist_version_control && cp -r client/build dist_version_control/dist_$(date +%Y%m%d_%H%M%S)",
+    "deploy": "git add . && git status --porcelain | grep . && read -p 'Enter commit message: ' commit_message && git commit -u -m \"$commit_message\" && git push origin main --force || echo 'Nothing to commit. Aborting deploy.'",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d",
+    "lint-old": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhamseyswork/Ryan-Mitch-MP3"
+  },
+  "keywords": [
+    "Ryan Micthell MP3",
+    "Ryan Mitchell",
+    "Ryan"
+  ],
+  "author": "OC Pace Setters",
+  "license": "[MIT, GNU]",
+  "bugs": {
+    "url": "https://https://github.com/rhamseyswork/Ryan-Mitch-MP3/issues"
+  },
+  "dependencies": {
+    "@react-native-community/cli": "^13.6.9",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.5",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}
