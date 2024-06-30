@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhamseyswork/Ryan-Mitch-MP3"
+    "url": "git+https://github.com/rhamseyswork/RyanMitchell.MP3.git"
   },
   "keywords": [
     "Ryan Micthell MP3",
@@ -32,7 +32,7 @@
   "author": "OC Pace Setters",
   "license": "[MIT, GNU]",
   "bugs": {
-    "url": "https://https://github.com/rhamseyswork/Ryan-Mitch-MP3/issues"
+    "url": "https://github.com/rhamseyswork/RyanMitchell.MP3/issues"
   },
   "dependencies": {
     "@react-native-community/cli": "^13.6.9",
