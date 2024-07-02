@@ -32,10 +32,9 @@ function App() {
         <Routes index={true}>
           <Route path='' element={<Pages.Home />} /> 
           <Route path='' element={<PrivateRoute />}>
-            {/* <Route path='/api/LinkTree' element={<Pages.LinkTree />} />  */}
-          </Route>
-          <Route path='' element={<AdminRoute />}>
-            {/* <Route path='/admin/LinkTree' element={<Pages.admin.LinkTree />}/> */}
+        </Route>
+        <Route path='' element={<AdminRoute />}>
+            <Route path='/admin/LinkTree' element={<Pages.admin.LinkTreeAdmin />}/> 
           </Route>
           <Route path='/Login' element={<Pages.Login />} />
           <Route path="*" element={<Pages.Error404 />} />

@@ -1,11 +1,22 @@
 body{
+    display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
     text-align: center !important;
     margin: 0px 20px 0px 20px!important;
+    height: 100vh;
 }
 
-#root > *::not(:nth-last-child(2)):not(:last-child) {
-    height: 70vh;
-    align-content: center;
+#root{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+}
+#root.Footer{
+    align-self: flex-end;
 }

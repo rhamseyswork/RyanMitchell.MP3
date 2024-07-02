@@ -1,32 +1,54 @@
-import React from 'react'
+import React, {useEffect} from 'react';
+import { useParams, Link } from 'react-router-dom';
 import styles from './Home.module.css'; 
+import Loader from '../../components/Loader/Loader.jsx';
+import { FaSpotify } from "react-icons/fa";
+import { SiApplemusic, SiAmazonmusic, SiTidal } from "react-icons/si";
+import Message from '../../components/Message/Message.jsx'; 
+import NavLink from '../../components/Button Link/ButtonLink';
+import Meta from '../../components/Meta/Meta.jsx';
+import { useGetLinksQuery } from '../../slices/linksApiSlice.js';
+import Button from 'react-bootstrap/Button';
 
 function Home() {
+  const { keyword } = useParams('');
+
+  const { data, isLoading, error, refetch } = useGetLinksQuery({ keyword });
+
+  useEffect(() => {
+    // Refetch data when keyword changes (if needed)
+    refetch();
+  }, [keyword, refetch]);
+
+  console.log(data);
+
+  if (isLoading) return <Loader />;
+  if (error) return <Message variant="danger">{error?.data?.message || error.error}</Message>;
+  // if (error) return <Message variant="danger">{error?.data?.message || 'Unknown error occurred'}</Message>;
+
   return (
-    <div className={styles.container}>
-      <div>
-        <p>img</p>
-      </div>
-      <div>
-        <h2>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
-        <p>Choose your preferred music service</p>
-        <div className={styles.containerBtn}>
-        <button>
-          Pre-Save
-        </button>
-        <button>
-          Pre-Add
-        </button>
-        <button>
-          Pre-Save
-        </button>
-        <button>
-          Pre-Save
-        </button>
+    <>
+      <Meta title="Ryan Mitch Link Tree"/>
+      {!keyword ? '' : <Button as={Link} to="/" className='btn btn-dark mb-4'>Go Back</Button> }
+
+      <div className={styles.container} style={{overflow: "hidden"}}>
+        <div>
+          <img src="/Hero.webp" alt="Hero Image" width="500px" height="500px"/>
+        </div>
+        <div>
+          <h2>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
+          <p>Choose your preferred music service</p>
+          <div className={styles.containerBtn}>
+            {data.links.map((link, index) => (
+              <NavLink key={link._id} img={link.img} to={link.url} alt={link.title}>
+              {link.label} {/* Assuming link.label exists in your data structure */}
+            </NavLink>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Home
+export default Home;
