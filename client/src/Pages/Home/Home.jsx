@@ -20,7 +20,6 @@ function Home() {
     refetch();
   }, [keyword, refetch]);
 
-  console.log(data);
 
   if (isLoading) return <Loader />;
   if (error) return <Message variant="danger">{error?.data?.message || error.error}</Message>;
