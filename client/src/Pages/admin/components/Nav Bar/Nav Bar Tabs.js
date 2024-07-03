@@ -8,7 +8,6 @@ const tabs = [
     ["Metrics", "Site", "Instagram", "TikTok", "YouTube"],
     ["Settings", "General", "Social Media", "Contact Info", "Customization"],
     ["Users", "View", "Add"],
-    "Logout"
 ];
 
 
