@@ -20,6 +20,11 @@ const userSchema = mongoose.Schema({
         required: true,
         default: false,
     },
+    isSuperAdmin: {
+        type: Boolean,
+        required: false,
+        default: undefined,
+    },
 },
 {
     timestamps: true,

@@ -2,7 +2,8 @@
 //Date: 2024-03-29
 /* @vite-ignore */
 import React, { Suspense, useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './App.css';
 
@@ -12,15 +13,36 @@ import Components from './components/manifest.js';
 import Pages from './Pages/mainifest.js';
 import PrivateRoute from './components/Private Route/PrivateRoute.jsx';
 import AdminRoute from './components/Admin Route/AdminRoute.jsx'
+import SuperAdminRoute from './components/Super Admin Route/SuperAdminRoute.jsx'
 import { ToastContainer } from "react-bootstrap";
 import "react-toastify/dist/ReactToastify.css";
 import Meta from './components/Meta/Meta.jsx';
+import { useLogoutMutation } from './slices/usersApiSlice';
+import { logout } from './slices/authSlice.js';
+
 
 function App() {
   const location = useLocation();
   const [metaTagName, setMetaTagName] = useState('');
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+
+
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try{
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+
+  useEffect(() => {
     const metaTagName = location.pathname.substring(1);
     setMetaTagName(metaTagName);//option to add Home
   }, [location.pathname]);  
@@ -31,14 +53,23 @@ function App() {
       <Suspense fallback={<div> RyanMmtch.MP3 Loading...</div>}>
         <Routes index={true}>
           <Route path='' element={<Pages.Home />} /> 
-          <Route path='' element={<PrivateRoute />}>
+        <Route path='' element={<PrivateRoute />}>
+          <Route path='/profile' element={<Pages.Profile />} /> 
+          <Route path='/roles' element={<Pages.Role />} /> 
+          <Route path='/dashboard' element={<Pages.PortalB />} /> 
         </Route>
         <Route path='' element={<AdminRoute />}>
-            <Route path='/admin/LinkTree' element={<Pages.admin.LinkTreeAdmin />}/> 
-          </Route>
-          <Route path='/Login' element={<Pages.Login />} />
-          <Route path="*" element={<Pages.Error404 />} />
-    </Routes>
+          <Route path='/admin/dashboard' element={<Pages.admin.Portal />}/> 
+          <Route path='/admin/metrics' element={<Pages.admin.Metrics />}/> 
+          <Route path='/admin/linktree' element={<Pages.admin.LinkTreeAdmin />}/> 
+        </Route>
+        <Route path='' element={<SuperAdminRoute />}>
+          <Route path='/superadmin/dashboard' element={<Pages.superAdmin.PortalA />}/> 
+        </Route>
+        <Route path='/login' element={<Pages.Login />} />
+        <Route path='/logout' element={<LogoutPage onLogout={logoutHandler} />} />
+        <Route path="*" element={<Pages.Error404 />} />
+      </Routes>
     </Suspense>
     <Suspense fallback={<div>Loading Footer ...</div>}>
       { <Components.Footer /> }
@@ -48,7 +79,12 @@ function App() {
   );
 }
 
+const LogoutPage = ({ onLogout }) => {
+  useEffect(() => {
+    onLogout();
+  }, [onLogout]);
 
-
+  return <div>Logging out...</div>;
+};
 
 export default App;
