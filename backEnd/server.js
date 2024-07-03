@@ -17,20 +17,20 @@ connectDB();
 
 const app = express();
 
-// Enable CORS for all origins
-app.use(cors());
-
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true // Optional: If you need to send cookies or authentication headers
-}));
-
 //Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Cookie parser middleware
 app.use(cookieParser());
+
+app.use(cors());
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 app.use('/api/links', linksRoutes);
 app.use('/api/users', userRoutes);
