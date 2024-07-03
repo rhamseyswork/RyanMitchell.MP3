@@ -32,6 +32,7 @@ function Home() {
         {error?.data?.message || 'Unknown error occurred'}
       </Message>
     )
+    console.log(data)
 
   return (
     <>
@@ -72,7 +73,7 @@ function Home() {
                 to={link.url}
                 alt={link.title}
               >
-                {link.label}
+                {link.title}
               </NavLink>
             ))}
           </div>
