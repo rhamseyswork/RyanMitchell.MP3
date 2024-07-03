@@ -1,11 +1,35 @@
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/Hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -10;
+  }
+  
+  .background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* grey overlay with 70% opacity */
+  }
+  
 body{
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     text-align: center !important;
-    margin: 0px 20px 0px 20px!important;
     height: 100vh;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    min-width: 225px;
 }
 
 #root{
@@ -13,10 +37,13 @@ body{
     flex-direction: column;
     height: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     align-self: center;
     text-align: center;
+    margin: 0px 20px 0px 20px!important;
 }
-#root.Footer{
-    align-self: flex-end;
+
+
+#root > *:not(.Footer-container){
+    margin: auto;
 }

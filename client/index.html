@@ -23,16 +23,19 @@
     <!-- <link  href="print.css" rel="alternate stylesheet" media="print" />
     <link href="mobile.css" rel="stylesheet" media="screen and (max-width: 600px)" /> -->
     <link rel="manifest" type="XML" href="/manifest.json"/>
-    <link rel="prefetch" type="txt/js" as="script" href="./src/main.jsx" onload="this.rel='modulepreload'"/>
+    <!-- <link rel="prefetch" type="txt/js" as="script" href="./src/main.jsx" onload="this.rel='modulepreload'"/> -->
 
     <!-- <link rel="preload" href="fonts/cicle_fina-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous" /> -->
-    <script async type="module" src="./src/main.jsx" crossorigin="anonymous" language="JavaScript" integrity="" charset="UTF-8" onload="handleLoad('primary', 'app')" onerror="handleError('primary', 'app')"></script>
+    <script async type="module" src="./src/main.jsx" crossorigin="" language="JavaScript" integrity="" charset="UTF-8" onload="handleLoad('primary', 'app')" onerror="handleError('primary', 'app')"></script>
     <script defer async type="module" src="./js/index-fallback.js" crossorigin="anonymous" integrity="" language="JavaScript" charset="UTF-8" onload="handleLoad('secondary', 'app')" onerror="handleError('secondary', 'app')"></script>
     <script defer async type="module" src="./js/index-anon.js" crossorigin="anonymous" language="JavaScript" integrity="" charset="UTF-8" onload="handleLoad('primary', '_')" onerror="handleError('primary', '')"></script>
     <script defer type="module" src="./js/index-main.js" crossorigin="use-credentials" integrity="" language="JavaScript" charset="UTF-8" onload="handleLoad('primary', 'fallback')" onerror="handleError('primary', 'fallback')"></script>
   </head>
 
   <body style="display: flex; position: relative; flex-direction: row; background: hsl(0, 0%, 7%); font-family: Poppins, sans-serif; color: white; scroll-behavior: smooth; margin: 0; padding: 0;">
+    <div class="background">
+      <div class="background-overlay"></div>
+    </div>
     <noscript>You need to enable JavaScript to run my APPLICATION.</noscript>
 <!--DEPENDENCIES-->
     <!--ionicon link - Development use only

@@ -1,33 +1,47 @@
-// linksApiSlice.js
+import { LINKS_URL } from "../constants";
+import { apiSlice } from "./apiSlice.js";
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'; // Adjust imports as needed
-import { BASE_URL, LINKS_URL } from "../constants";
-
-// Initialize baseQuery with the base URL
-const baseQuery = fetchBaseQuery({ baseUrl: BASE_URL });
-
-// Define the API slice using createApi function
-export const linksApiSlice = createApi({
-  reducerPath: 'linksApi',
-  baseQuery,
-  tagTypes: ['Links'],
+export const linksApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    // Fetch all links endpoint
     getLinks: builder.query({
-      query: ({ keyword }) => ({
+      query: ({pageNumber, keyword }) => ({
         url: LINKS_URL,
-        params: { keyword },
+        params: { pageNumber, keyword },
       }),
-      keepUnusedDataFor: 5,
-      providesTags: ['Links'],
+    keepUnusedDataFor: 5,
+    providesTags: ['Links'],
+    }),
+    createLinks: builder.mutation({
+      query: () => ({
+          url: LINKS_URL,
+          method: 'POST',
+      }),
+      invalidatesTags: ['Links'],
+    }),
+    updateLinks: builder.mutation({
+      query: (data) => ({
+          url: `${LINKS_URL}/${data.id}`,
+          method: 'PUT',
+          body: data,
+      }),
+      invalidatesTags: ['Links'],
+    }),
+    deleteLinks: builder.mutation({
+      query: (id) => ({
+        url: `${LINKS_URL}/${id}`,
+        method: 'DELETE',
+      }),
     }),
   }),
 });
 
-// Export named exports
-export const { useGetLinksQuery } = linksApiSlice;
-export const { reducer: linksApiReducer } = linksApiSlice;
-export const { middleware: linksApiMiddleware } = linksApiSlice;
+export const {
+  useGetLinksQuery,
+  useCreateLinksMutation,
+  useUpdateLinksMutation,
+  useDeleteLinksMutation,
+} = linksApiSlice;
 
-// Export the API slice for configuration in Redux store
-export default linksApiSlice;
+
+
+

@@ -8,7 +8,6 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import linksRoutes from './routes/linksRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
-import cors from 'cors';
 // const express = require('express');
 //npm i -D nodemon concurrently
 //npm i dotenv 
@@ -23,14 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //Cookie parser middleware
 app.use(cookieParser());
-
-app.use(cors());
-
-app.use(cors({
-    origin: 'http://localhost:5173',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
 
 app.use('/api/links', linksRoutes);
 app.use('/api/users', userRoutes);
