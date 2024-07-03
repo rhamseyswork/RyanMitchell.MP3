@@ -113,7 +113,7 @@
 }
 @media screen and (max-width: 456px) {
     .container {
-        margin: auto 0%;
+        margin: auto 0% !important;
     }
     .container > :nth-child(1) {
         width: 100%!important;
@@ -122,5 +122,15 @@
       .container > * > img {
         height: 100% !important;
         width: 100% !important;
+    }
+    .container > * > h2 {
+        font-size: 24px !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .container > * > p {
+        font-size: 12px !important;
+        letter-spacing: 3px !important;
+        font-weight: 900 !important;
     }
 }

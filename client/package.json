@@ -62,7 +62,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "vite --port 3000",
-    "build": "vite build && mkdir -p build && mv build/. build/",
+    "build": "vite build && mkdir -p build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
