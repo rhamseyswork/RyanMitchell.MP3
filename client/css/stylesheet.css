@@ -50,7 +50,3 @@ body{
 #root > *:not(.Footer-container){
     margin: auto;
 }
-
-#root > *:not(.navBarSudo){
-  margin: 0px !important;
-}

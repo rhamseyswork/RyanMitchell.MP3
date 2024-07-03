@@ -32,7 +32,6 @@ function Home() {
         {error?.data?.message || 'Unknown error occurred'}
       </Message>
     )
-    console.log(data)
 
   return (
     <>
