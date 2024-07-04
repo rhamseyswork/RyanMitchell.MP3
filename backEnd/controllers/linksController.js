@@ -27,8 +27,8 @@ const getLinksById = asyncHandler(async (req, res) => {
 //@route POST /api/links
 //@access Private/Admin
 const createLink = asyncHandler(async (req, res) => {
-  const { title, url, img } = req.body; // Destructure title, url, img from request body
-  const link = new Links({ title, url, img }); // Create a new instance of Links model
+  const { title, url, img, color } = req.body; // Destructure title, url, img from request body
+  const link = new Links({ title, url, img, color }); // Create a new instance of Links model
 
   const createdLink = await link.save(); // Save the new link to the database
   res.status(201).json(createdLink); // Respond with status 201 Created and JSON of created link
@@ -38,13 +38,14 @@ const createLink = asyncHandler(async (req, res) => {
 //@route PUT /api/links/:id
 //@access Private/Admin
 const updateLink = asyncHandler(async (req, res) => {
-  const { title, url, img } = req.body; // Destructure title, url, img from request body
+  const { title, url, img, color } = req.body; // Destructure title, url, img from request body
   const link = await Links.findById(req.params.id); // Find the link by ID
 
   if (link) {
     link.title = title; // Update title of the link
     link.url = url; // Update URL of the link
     link.img = img; // Update image of the link
+    link.color = color; 
 
     const updatedLink = await link.save(); // Save the updated link to the database
     res.json(updatedLink); // Respond with JSON of updated link

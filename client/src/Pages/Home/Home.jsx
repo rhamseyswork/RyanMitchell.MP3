@@ -69,6 +69,7 @@ function Home() {
                 img={link.img}
                 to={link.url}
                 alt={link.title}
+                color={link.color}
               >
                 {link.title}
               </NavLink>

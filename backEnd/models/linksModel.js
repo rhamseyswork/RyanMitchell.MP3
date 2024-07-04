@@ -14,6 +14,10 @@ const linksSchema = new mongoose.Schema({
     type: String, // Assuming img is a URL to an image
     required: true,
   },
+  color: {
+    type: String,
+    required: true,
+  },
 });
 
 const Links = mongoose.model('Links', linksSchema);
