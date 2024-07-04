@@ -1,8 +1,9 @@
 .Footer{
     margin-top: 0vh !important;
 }
-.OC-Pace-Setters{
+.OC_Pace_Setters{
     text-align: center;
+    font-size: 17px ;
 }
 
 .OC-Pace-Setters Link {
@@ -12,4 +13,15 @@
 .OC-Pace-Setters Link:hover {
     color: pink;
 }
+.d_block{
+    font-size: 14px;
+}
 
+@media screen and (max-width: 1048px) {
+    .OC_Pace_Setters{
+        font-size: 12px;
+    }
+    .d_block{
+        font-size: 9px;
+    }
+}

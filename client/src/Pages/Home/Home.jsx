@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import Loader from '../../components/Loader/Loader.jsx'
-import { FaSpotify } from 'react-icons/fa'
-import { SiApplemusic, SiAmazonmusic, SiTidal } from 'react-icons/si'
 import Message from '../../components/Message/Message.jsx'
 import NavLink from '../../components/Button Link/ButtonLink'
 import Meta from '../../components/Meta/Meta.jsx'
@@ -17,13 +15,13 @@ function Home() {
     window.addEventListener('resize', () => {
       setWindowWidth(window.innerWidth)
     })
-  }, [])
+  }, []);
 
-  const showAllLinks = windowWidth > 768
+  const showAllLinks = windowWidth > 1045 || windowWidth < 768;
 
-  const { keyword } = useParams()
+  const { keyword } = useParams();
 
-  const { data, isLoading, error } = useGetLinksQuery({ keyword })
+  const { data, isLoading, error } = useGetLinksQuery({ keyword });
 
   if (isLoading) return <Loader />
   if (error)
@@ -86,7 +84,7 @@ function Home() {
               }}
               className={styles.moreImages}
             >
-              + {data.links.length - 4} more links
+              + {data.links.length - 5} more links
             </div>
           )}
         </div>

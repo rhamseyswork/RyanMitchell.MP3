@@ -2,7 +2,7 @@
 //Date: 2024-03-29
 /* @vite-ignore */
 import React, { Suspense, useEffect, useState } from 'react';
-import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate, Navigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import './App.css';
@@ -52,6 +52,7 @@ function App() {
       {metaTagName ? <Meta title={`Ryan Mitch MP3 | ${metaTagName}`} /> : <Meta/>}
       <Suspense fallback={<div> RyanMmtch.MP3 Loading...</div>}>
         <Routes index={true}>
+          <Route path="/home" element={<Navigate to="/" />} />
           <Route path='' element={<Pages.Home />} /> 
         <Route path='' element={<PrivateRoute />}>
           <Route path='/profile' element={<Pages.Profile />} /> 
@@ -68,6 +69,8 @@ function App() {
         </Route>
         <Route path='/login' element={<Pages.Login />} />
         <Route path='/logout' element={<LogoutPage onLogout={logoutHandler} />} />
+        <Route path='/terms' element={<Pages.Terms />} />
+        <Route path='/privacy' element={<Pages.Privacy />} />
         <Route path="*" element={<Pages.Error404 />} />
       </Routes>
     </Suspense>

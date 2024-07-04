@@ -4,7 +4,8 @@ import Login from './Login/Login.jsx'
 import Profile from './Profile/Profile.jsx'
 import Role from './Role/Role.jsx'
 import PortalB from './Portal/Portal.jsx';
-
+import Privacy from './Privacy.jsx';
+import Terms from './Terms.jsx';
 
 //admin
 import Portal from './admin/Portal/Protal.jsx';
@@ -29,6 +30,8 @@ const manifest = {
     Profile,
     Role,
     PortalB,
+    Privacy,
+    Terms,
     admin,
     superAdmin
 }
