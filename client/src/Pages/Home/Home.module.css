@@ -153,3 +153,37 @@
         font-weight: 900 !important;
     }
 }
+
+
+.playButton {
+    position: absolute;
+    top: 50%; /* Position button in the middle vertically */
+    left: 50%; /* Position button in the middle horizontally */
+    transform: translate(-50%, -50%) rotate(0deg); /* Center the button and initial rotation */
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1; /* Ensure button is above the image */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+  }
+  
+  .playButton.isPlaying {
+    animation: spin 1s infinite linear; /* Start spinning animation when button is playing */
+  }
+  
+  @keyframes spin {
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg); /* Full rotation */
+    }
+  }
+  
+  .playIcon {
+    font-size: 1.5rem; /* Adjust icon size */
+  }
+
+  .imgContainer {
+    position: relative;
+    display: inline-block;
+  }

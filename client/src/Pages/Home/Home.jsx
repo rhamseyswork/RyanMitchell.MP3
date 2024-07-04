@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import Loader from '../../components/Loader/Loader.jsx'
@@ -7,8 +7,11 @@ import NavLink from '../../components/Button Link/ButtonLink'
 import Meta from '../../components/Meta/Meta.jsx'
 import Button from 'react-bootstrap/Button'
 import { useGetLinksQuery } from '../../slices/linksApiSlice.js'
+import { FaPlay } from 'react-icons/fa'; 
 
 function Home() {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -16,6 +19,18 @@ function Home() {
       setWindowWidth(window.innerWidth)
     })
   }, []);
+
+  const handlePlay = () => {
+    const audio = audioRef.current;
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+
+    setIsPlaying(!isPlaying);
+  };
 
   const showAllLinks = windowWidth > 1045 || windowWidth < 768;
 
@@ -43,7 +58,7 @@ function Home() {
       )}
 
       <div className={styles.container} style={{ overflow: 'hidden' }}>
-        <div>
+        <div className={styles.imgContainer}>
           <img
             className={styles.img}
             src="/Hero.webp"
@@ -52,6 +67,10 @@ function Home() {
             height="100%"
             style={{objectFit: "cover"}}
           />
+                <button className={`${styles.playButton} ${isPlaying ? styles.isPlaying : ''}`} onClick={handlePlay}>
+        <FaPlay className={styles.playIcon} />
+      </button>
+      <audio ref={audioRef} src="/jiglr-hello-world.mp3" />
         </div>
         <div>
           <h2>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
