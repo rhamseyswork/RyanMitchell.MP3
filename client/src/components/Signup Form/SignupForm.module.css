@@ -1,0 +1,42 @@
+.container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5vw !important;
+    border-bottom: 15px;
+    background-color: #2e2e2e;
+    width: 100%;
+}
+
+.container form{
+    justify-content: center;
+}
+
+.container label, .container input{
+    display: inline-flex
+}
+
+.container form > *{
+    justify-content: center;
+    align-content: center;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.container button{
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 1048px) {
+
+}
+
+@media screen and (min-width: 768px) {
+}
+        
+@media screen and (max-width: 456px) {
+    .container{
+        margin: auto 0 !important;
+    }
+}

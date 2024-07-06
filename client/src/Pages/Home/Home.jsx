@@ -8,6 +8,8 @@ import Meta from '../../components/Meta/Meta.jsx'
 import Button from 'react-bootstrap/Button'
 import { useGetLinksQuery } from '../../slices/linksApiSlice.js'
 import { FaPlay } from 'react-icons/fa'; 
+import SignupForm from '../../components/Signup Form/SignupForm.jsx'
+import Links from '../../components/Links/Links.jsx'
 
 function Home() {
   const audioRef = useRef(null);
@@ -74,6 +76,7 @@ function Home() {
         </div>
         <div>
           <h2>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
+          <Links />
           <p>Choose your preferred music service</p>
           <div
             className={styles.containerBtn}
@@ -108,6 +111,7 @@ function Home() {
             </div>
           )}
         </div>
+        <SignupForm/>
       </div>
     </>
   )

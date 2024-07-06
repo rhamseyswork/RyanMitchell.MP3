@@ -1,5 +1,5 @@
 {
-  "name": "Ryanmitchell.mp3",
+  "name": "ryanmitchell.mp3",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -27,7 +27,10 @@
   "keywords": [
     "Ryan Micthell MP3",
     "Ryan Mitchell",
-    "Ryan"
+    "Ryan",
+    "Mitchell",
+    "MP3",
+    "Music"
   ],
   "author": "OC Pace Setters",
   "license": "[MIT, GNU]",
