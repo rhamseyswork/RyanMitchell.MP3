@@ -2,18 +2,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 5vw !important;
     border-bottom: 15px;
     background-color: #2e2e2e;
     width: 100%;
+    grid-column: span 2;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 35px;
 }
 
 .container form{
     justify-content: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .container label, .container input{
-    display: inline-flex
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+}
+.container input {
+    width: 50%;
+    
 }
 
 .container form > *{

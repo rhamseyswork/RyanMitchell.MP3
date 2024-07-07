@@ -33,11 +33,12 @@ body{
     text-align: center;
     justify-content: center;
     text-align: center !important;
-    height: 100vh;
+    height: 100%;
     margin-bottom: 0px;
     padding-bottom: 0px;
     min-width: 225px;
     min-height: 100vh;
+
 }
 
 #root{
