@@ -10,6 +10,8 @@ import { useGetLinksQuery } from '../../slices/linksApiSlice.js'
 import { FaPlay } from 'react-icons/fa'; 
 import SignupForm from '../../components/Signup Form/SignupForm.jsx'
 import Links from '../../components/Links/Links.jsx'
+import LazyLoad from 'react-lazyload';
+
 
 function Home() {
   const audioRef = useRef(null);
@@ -61,6 +63,7 @@ function Home() {
 
       <div className={styles.container} style={{ overflow: 'hidden' }}>
         <div className={styles.imgContainer}>
+        <LazyLoad height="100%" once>
           <img
             className={styles.img}
             src="/Hero.webp"
@@ -69,6 +72,7 @@ function Home() {
             height="100%"
             style={{objectFit: "cover"}}
           />
+          </LazyLoad>
                 <button className={`${styles.playButton} ${isPlaying ? styles.isPlaying : ''}`} onClick={handlePlay}>
         <FaPlay className={styles.playIcon} />
       </button>

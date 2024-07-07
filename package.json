@@ -7,7 +7,7 @@
   "scripts": {
     "start-test": "echo 'Running tests...' && chmod +x test.sh && ./test.sh",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node backEnd/server.js",
+    "start": "vite start",
     "server": "nodemon backEnd/server.js",
     "client": "npm start --prefix client",
     "prod": "npm run lint && npm run build && npm run server:prod",
@@ -18,7 +18,7 @@
     "data:destroy": "node backend/seeder.js -d",
     "lint-old": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint": "eslint . --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "next start -p 8080"
   },
   "repository": {
     "type": "git",
@@ -39,19 +39,25 @@
   },
   "dependencies": {
     "@react-native-community/cli": "^13.6.9",
+    "@vitejs/plugin-vue": "^5.0.5",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "fs-extra": "^11.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.5",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-lazyload": "^3.2.1",
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/node": "^7.24.7",
-    "@babel/preset-react": "^7.24.7",
+    "@babel/plugin-transform-runtime": "^7.24.7",
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.0"
   }
