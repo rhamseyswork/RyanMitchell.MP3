@@ -7,7 +7,7 @@
   "scripts": {
     "start-test": "echo 'Running tests...' && chmod +x test.sh && ./test.sh",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "vite start",
+    "start": "node start",
     "server": "nodemon backEnd/server.js",
     "client": "npm start --prefix client",
     "prod": "npm run lint && npm run build && npm run server:prod",
