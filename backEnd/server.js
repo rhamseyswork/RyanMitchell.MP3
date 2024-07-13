@@ -8,7 +8,6 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import linksRoutes from './routes/linksRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
-import compression from 'compression';// const express = require('express');
 //npm i -D nodemon concurrently
 //npm i dotenv 
 
@@ -22,23 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //Cookie parser middleware
 app.use(cookieParser());
-app.use(compression());
-
-// import { fileURLToPath } from 'url';
-// import { dirname, join } from 'path';
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
-// adjust your static file path accordingly
-// app.use(express.static(join(__dirname, 'build')));
-// app.use(express.static(join(__dirname, 'build')));
-
-// app.use(express.static(path.join(__dirname, 'build')));
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
-//   });
 
 app.use('/api/links', linksRoutes);
 app.use('/api/users', userRoutes);

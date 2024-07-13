@@ -7,7 +7,7 @@
   "scripts": {
     "start-test": "echo 'Running tests...' && chmod +x test.sh && ./test.sh",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "node start",
+    "start": "node backEnd/server.js",
     "server": "nodemon backEnd/server.js",
     "client": "npm start --prefix client",
     "prod": "npm run lint && npm run build && npm run server:prod",
@@ -18,7 +18,7 @@
     "data:destroy": "node backend/seeder.js -d",
     "lint-old": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint": "eslint . --max-warnings 0",
-    "preview": "next start -p 8080"
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
