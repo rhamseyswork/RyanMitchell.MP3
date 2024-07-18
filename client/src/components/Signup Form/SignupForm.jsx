@@ -15,10 +15,37 @@ const SignupForm = () => {
     const dispatch = useDispatch();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [disableSubmit, setDisableSubmit] = useState(false);
+    const [phone, setPhone] = useState('');
+
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
+    };
+
+    const handlePhoneChange = (event) => {
+        let input = event.target.value.replace(/\D/g, ''); // Remove non-digit characters
+
+        // Limit input to 10 digits
+        if (input.length > 10) {
+            input = input.slice(0, 10);
+        }
+
+        // Format the phone number with parentheses and dashes
+        let formattedPhoneNumber = '';
+        if (input.length >= 3) {
+            formattedPhoneNumber = `(${input.slice(0, 3)}`;
+        }
+        if (input.length > 3) {
+            formattedPhoneNumber += `) ${input.slice(3, 6)}`;
+        }
+        if (input.length > 6) {
+            formattedPhoneNumber += `-${input.slice(6, 10)}`;
+        }
+
+        // Update both formData.phone and phone state
+        setFormData({ ...formData, phone: input });
+        setPhone(formattedPhoneNumber); // Update the state with formatted phone number
     };
 
     const handleSubmit = async (event) => {
@@ -105,9 +132,10 @@ const SignupForm = () => {
                 <input
                     id="name"
                     name="name"
-                    placeholder="Your First and Last Name"
+                    placeholder="Your First & Last Name (e.g., Firstname Lastname)"
                     value={formData.name}
                     onChange={handleInputChange}
+                    pattern="[a-zA-Z]+ [a-zA-Z]+"
                     required
                 />
                 <br />
@@ -116,9 +144,10 @@ const SignupForm = () => {
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="Your Email"
+                    placeholder="Enter your email (e.g., john@example.com)"
                     value={formData.email}
                     onChange={handleInputChange}
+                    pattern="[a-zA-Z]{4,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}"
                     required
                 />
                 <br />
@@ -127,10 +156,11 @@ const SignupForm = () => {
                     type="tel"
                     id="phone"
                     name="phone"
-                    placeholder="Your Phone Number"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
+                    placeholder="Your Phone Number (e.g., (555) 123-4567)"
+                    value={phone}
+                    pattern="[0-9 ()-]*"
+                    onChange={handlePhoneChange}
+                    inputMode="numeric" // This can also help with mobile keyboards
                 />
                 <button type="submit" disabled={isSubmitting || disableSubmit}>
                     {isSubmitting ? 'Submitting...' : 'Signup'}
