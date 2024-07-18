@@ -223,8 +223,13 @@ rhamseys.com/
 <!-- ROADMAP -->
 ## Roadmap <a id="roadmap"></a> 
 
-- [x] Upload Updates
-- [ ] Update Projects
+- [ ] Upload Updates
+- [ ] Fix Admin Protal
+- [ ] Add Menu to partner portal
+- [ ] Update Dev so can render w/out Api
+- [ ] Fix Link error center
+- [ ] modulary add backend to update api
+- [ ] convert to SDK
 
 See the [open issues](https://github.com/rhamseyswork/rhamseys.com/issues) for a full list of proposed features (and known issues).
 

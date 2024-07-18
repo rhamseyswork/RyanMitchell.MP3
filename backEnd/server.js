@@ -6,6 +6,7 @@ dotebnv.config();
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import linksRoutes from './routes/linksRoutes.js';
+import newsLetterRoutes from './routes/newsLetterRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 //npm i -D nodemon concurrently
@@ -23,8 +24,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/api/links', linksRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/newsLetter', newsLetterRoutes);
 app.use('/api/upload', uploadRoutes);
+// app.use('/api/users', userRoutes);
 
 
 const __dirname = path.resolve(); // Set __dirname to the absolute path of the current directory
