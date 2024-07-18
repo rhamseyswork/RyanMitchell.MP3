@@ -76,7 +76,7 @@ function Home() {
                 <button className={`${styles.playButton} ${isPlaying ? styles.isPlaying : ''}`} onClick={handlePlay}>
         <FaPlay className={styles.playIcon} />
       </button>
-      <audio ref={audioRef} src="/I Am Death (Destroyer of Worlds).v2_BRLN_MSTR_48k24bit.mp3" />
+      <audio ref={audioRef} src="/I Am Death (Destroyer of Worlds).mp3" />
         </div>
         <div>
           <h2>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
