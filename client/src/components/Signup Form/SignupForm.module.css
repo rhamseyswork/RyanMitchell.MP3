@@ -1,4 +1,5 @@
-.container{
+.container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -8,46 +9,66 @@
     grid-column: span 2;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding: 35px;
+    padding: 15px 35px;
+  }
+  .container input::placeholder {
+    text-align: center; /* Center align placeholder text horizontally */
+    line-height: inherit; /* Inherit line height from parent */
 }
-
-.container form{
-    justify-content: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.container label, .container input{
-    display: inline-flex;
-    justify-content: center;
-    text-align: center;
-}
-.container input {
-    width: 50%;
-    
-}
-
-.container form > *{
-    justify-content: center;
-    align-content: center;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.container button{
-    text-align: center;
+  
+  .container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    gap: 20px; /* Gap between columns */
     width: 100%;
-}
+  }
 
-@media screen and (max-width: 1048px) {
+  .inputRow{
+    grid-column: 1 / span 2; /* Span across both columns */
+  }
+  
+  .container label,
+  .container input {
+    margin: 3px 0; /* Adjust margin as needed */
+    width: 100%; /* Ensure input fields take full width */
+    text-align: center; 
+  }
 
-}
-
-@media screen and (min-width: 768px) {
-}
-        
-@media screen and (max-width: 456px) {
-    .container{
-        margin: auto 0 !important;
-    }
-}
+  .container h2{
+    text-shadow: 0px 6px 8px rgba(255, 0, 0, 0.772)
+  }
+  
+  .container input {
+    padding: 10px; /* Add padding for better visual appeal */
+    border: 1px solid #ccc; /* Example border styling */
+    border-radius: 5px; /* Example border radius */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+  }
+  
+  .container button {
+    grid-column: span 2; /* Span across both columns */
+    margin-top: 20px; /* Adjust margin as needed */
+    width: 100%; /* Make button full width */
+    padding: 10px; /* Add padding for better visual appeal */
+    background-color: darkred; /* Example button background color */
+    color: white; /* Example button text color */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .container button:hover {
+    background-color: orange; /* Example button background color */
+  }
+  
+  @media screen and (max-width: 1048px) {
+    /* Add responsive styles as needed */
+  }
+  
+  @media screen and (min-width: 768px) {
+    /* Add responsive styles as needed */
+  }
+  
+  @media screen and (max-width: 456px) {
+    /* Add responsive styles as needed */
+  }
+  

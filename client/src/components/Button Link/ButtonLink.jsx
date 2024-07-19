@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ButtonLink.module.css';
 import { FaSpotify, FaGooglePlay } from 'react-icons/fa';
-import { SiApplemusic, SiAmazonmusic, SiTidal, SiAudiomack } from "react-icons/si";
+import { SiApplemusic, SiAmazonmusic, SiTidal, SiAudiomack, SiPandora } from "react-icons/si"
+import { TbDeviceImacDown } from "react-icons/tb";
 
 
 const iconComponents = {
@@ -11,15 +12,19 @@ const iconComponents = {
   SiAmazonmusic,
   SiTidal,
   FaGooglePlay,
-  SiAudiomack
+  SiAudiomack,
+  SiPandora,
+  TbDeviceImacDown
 };
 
-const ButtonLink = ({ target = "_blank", rel = "noopener noreferrer", alt, color="grey", to, img, children }) => {
+const ButtonLink = ({ target = "_blank", rel = "noreferrer", alt, colorBG = 'darkred' , to, img, children }) => {
   // Dynamically determine the icon component
   const IconComponent = img && iconComponents[img.replace(/<\/?([a-zA-Z]+).*?>/g, '$1')];
 
+  if (colorBG === '')colorBG = 'darkred';
+
   return (
-    <button className={styles.button} style={{ backgroundColor: color, }}>
+    <button className={styles.button} style={{ backgroundColor: colorBG, }}>
       <Link target={target} rel={rel} to={to}>
         {IconComponent ? (
           // Render the icon component if IconComponent is defined

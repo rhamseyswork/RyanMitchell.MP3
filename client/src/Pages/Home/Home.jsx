@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import Loader from '../../components/Loader/Loader.jsx'
@@ -7,14 +7,13 @@ import NavLink from '../../components/Button Link/ButtonLink'
 import Meta from '../../components/Meta/Meta.jsx'
 import Button from 'react-bootstrap/Button'
 import { useGetLinksQuery } from '../../slices/linksApiSlice.js'
-import { FaPlay } from 'react-icons/fa'; 
 import SignupForm from '../../components/Signup Form/SignupForm.jsx'
 import Links from '../../components/Links/Links.jsx'
 import LazyLoad from 'react-lazyload';
+import PlayButton from '../../components/Music Player/PlayButton.jsx'
 
 
 function Home() {
-  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -43,12 +42,15 @@ function Home() {
   const { data, isLoading, error } = useGetLinksQuery({ keyword });
 
   if (isLoading) return <Loader />
-  if (error)
-    return (
+  if (error) return (
       <Message variant="danger">
         {error?.data?.message || 'Unknown error occurred'}
       </Message>
     )
+
+    const audioFile = "/I Am Death (Destroyer of Worlds).mp3";
+
+    
 
   return (
     <>
@@ -64,6 +66,7 @@ function Home() {
       <div className={styles.container} style={{ overflow: 'hidden' }}>
         <div className={styles.imgContainer}>
         <LazyLoad height="100%" once>
+        <div className={styles.shadowBottomBox} />
           <img
             className={styles.img}
             src="/Hero.webp"
@@ -73,13 +76,10 @@ function Home() {
             style={{objectFit: "cover"}}
           />
           </LazyLoad>
-                <button className={`${styles.playButton} ${isPlaying ? styles.isPlaying : ''}`} onClick={handlePlay}>
-        <FaPlay className={styles.playIcon} />
-      </button>
-      <audio ref={audioRef} src="/I Am Death (Destroyer of Worlds).mp3" />
+          <PlayButton audioSrc={audioFile} />
         </div>
         <div>
-          <h2>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
+          <h2 className={styles.mainTitle}>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
           <Links />
           <p>Choose your preferred music service</p>
           <div
@@ -95,7 +95,7 @@ function Home() {
                 img={link.img}
                 to={link.url}
                 alt={link.title}
-                color={link.color}
+                colorBG={link.color}
               >
                 {link.title}
               </NavLink>

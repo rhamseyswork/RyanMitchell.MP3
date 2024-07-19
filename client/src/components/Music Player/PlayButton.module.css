@@ -1,0 +1,52 @@
+.playButton {
+    position: absolute;
+    top: 50%; /* Position button in the middle vertically */
+    left: 50%; /* Position button in the middle horizontally */
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1; /* Ensure button is above the image */
+    transition: transform 0.3s ease; /* Smooth transition for rotation */
+  }
+  
+.progressBar {
+    height: 150px;
+    width: 150px;
+    left: -70px;
+    top: -65px;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 8px;
+    border-radius: 75px;
+  }
+  
+  .playButton .progressBackground {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2); /* Lighter stroke color for background */
+    stroke-width: 8;
+  }
+  
+  .playButton .progress {
+    fill: none;
+    stroke: #1a73e8; /* Adjust color for the progress bar */
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 0 283; /* Adjust this value based on progress */
+    transition: stroke-dasharray 0.3s ease;
+  }
+  
+  .playButton .iconWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  
+  .playButton .playIcon {
+    color: white; /* Adjust icon color */
+    font-size: 40px; /* Adjust icon size */
+  }
+  
