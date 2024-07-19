@@ -48,9 +48,7 @@ function Home() {
       </Message>
     )
 
-    const audioFile = "/I Am Death (Destroyer of Worlds).mp3";
-
-    
+    const audioFile = "/I-Am-Death-(Destroyer-of-Worlds).mp3";
 
   return (
     <>
