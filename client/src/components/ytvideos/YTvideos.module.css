@@ -1,0 +1,31 @@
+.title{
+       display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 15px;
+    background-color: #2e2e2e;
+    width: 100%;
+    grid-column: span 2;
+}
+      
+.title h2{
+}
+
+.videoContainer {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 16px; /* Gap between videos */
+    padding: 16px; /* Padding around videos */
+  }
+  
+  .innerContainer {
+    flex: 0 0 auto; /* Prevent flex items from growing */
+    width: 320px; /* Width of each video container */
+  }
+  
+  .innerContainer iframe {
+    width: 100%; /* Ensure iframe fills its container */
+    height: 100%; /* Ensure iframe fills its container */
+  }
+  

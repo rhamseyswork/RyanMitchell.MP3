@@ -11,6 +11,12 @@ import SignupForm from '../../components/Signup Form/SignupForm.jsx'
 import Links from '../../components/Links/Links.jsx'
 import LazyLoad from 'react-lazyload';
 import PlayButton from '../../components/Music Player/PlayButton.jsx'
+import YTvideos  from "../../components/ytvideos/ytvideos.jsx";
+import DisplayAlbum from "../../components/Display Album/DisplayAlbum.jsx";
+import Tickets from "../../components/Tickets/Tickets.jsx";
+import Merch from "../../components/Merch/Merch.jsx";
+import DisplayTikTok from "../../components/Display TikTok/DisplayTikTok.jsx";
+
 
 
 function Home() {
@@ -113,8 +119,13 @@ function Home() {
             </div>
           )}
         </div>
-        <SignupForm/>
       </div>
+      <YTvideos />
+        <DisplayAlbum />
+        <DisplayTikTok />
+        <Tickets />
+        <Merch />
+        <SignupForm/>
     </>
   )
 }

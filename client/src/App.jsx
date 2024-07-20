@@ -49,7 +49,7 @@ function App() {
 
   return (
     <>
-      {metaTagName ? <Meta title={`Ryan Mitch MP3 | ${metaTagName}`} /> : <Meta/>}
+      {metaTagName ? <Meta title={`Ryan Mitchell MP3 | ${metaTagName}`} /> : <Meta/>}
       <Suspense fallback={<div> RyanMitchell.MP3 Loading...</div>}>
         <Routes index={true}>
           <Route path="/home" element={<Navigate to="/" />} />
