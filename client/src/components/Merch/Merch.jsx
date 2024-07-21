@@ -2,7 +2,9 @@ import React from 'react'
 
 const Merch = () => {
   return (
-    <div>Merch</div>
+    <div>
+      Connect Merch API
+    </div>
   )
 }
 
