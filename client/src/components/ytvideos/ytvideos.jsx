@@ -4,7 +4,7 @@ import styles from "./YTvideos.module.css";
 const YTvideos=()=>{
     return(
         <>
-            <div classname={styles.title}>
+            <div className={styles.title}>
                 <h2>Canes & Ruin My Life (Official Video)</h2>
             </div>
             <div className={styles.videoContainer}>
