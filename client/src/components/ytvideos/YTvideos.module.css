@@ -1,5 +1,5 @@
 .title{
-       display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -28,4 +28,13 @@
     width: 100%; /* Ensure iframe fills its container */
     height: 100%; /* Ensure iframe fills its container */
   }
-  
+
+  @media screen and (max-width: 1048px) {
+  }
+  @media screen and (max-width: 768px) {
+    .videoContainer{
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 456px) {
+  }
