@@ -1,4 +1,5 @@
 {
+  "__comment__": "prettier --write path/to/your/file.js",
     "semi": false,
     "singleQuote": true,
     "overrides": [
@@ -17,3 +18,4 @@
       }
     ]
   }
+  

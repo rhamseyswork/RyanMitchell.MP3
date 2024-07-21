@@ -1,20 +1,29 @@
 import React from 'react'
-import sytles from './Tickets.module.css';
+import sytles from './Tickets.module.css'
+import TourDateEvent from './TourDateEvent.jsx'
+import Loader from '../Loader/Loader'
+import Message from '../Message/Message.jsx'
+import { useGetTourDatesQuery } from '../../slices/tourDatesApiSlice.js'
 
 const Tickets = () => {
+  const { data, isLoading, error } = useGetTourDatesQuery()
+
   return (
-    <div className={sytles.conatiner}>
-      <div className={sytles.banner}>
-        <p className={sytles.month}>Month</p>
-        <p className={sytles.date}>Date</p>
-        <p className={sytles.year}>Year</p>
-      </div>
-      <div className={sytles.info}>
-        <p className={sytles.title}>Title</p>
-        <p className={sytles.location}>Location</p>
-        <button className={sytles.rsvp}>RSVP</button>
-      </div>
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant={'danger'}>
+          {error?.data?.message || error.error}
+        </Message>
+      ) : (
+        <div className={sytles.conatiner}>
+          {data.tourDates.map(tourDate => (
+              <TourDateEvent tourDate={tourDate} style={{display: 'content'}}/>
+            ))}
+        </div>
+      )}
+    </>
   )
 }
 

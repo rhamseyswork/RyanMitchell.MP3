@@ -9,6 +9,10 @@ import linksRoutes from './routes/linksRoutes.js';
 import newsLetterRoutes from './routes/newsLetterRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import tourDatesRoutes from './routes/tourDatesRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+
 //npm i -D nodemon concurrently
 //npm i dotenv 
 
@@ -25,9 +29,15 @@ app.use(cookieParser());
 
 app.use('/api/links', linksRoutes);
 app.use('/api/newsLetter', newsLetterRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/tourdates', tourDatesRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
-// app.use('/api/users', userRoutes);
 
+app.get('/api/config/paypal', (req, res) => 
+    res.send({ clientId: process.env.PAYPAL_CLIENT_ID})
+);
 
 const __dirname = path.resolve(); // Set __dirname to the absolute path of the current directory
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
