@@ -1,0 +1,40 @@
+.ticketContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 10px; /* Adjust as needed */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 600px) {
+    .ticketContainer {
+      grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+    }
+  }
+
+  
+
+  /* .ticketContainer {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 10px;
+    overflow-x: auto; 
+    width: 100%; 
+  }
+  
+  .event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 300px;
+  }
+  
+  @media (min-width: 600px) {
+    .ticketContainer {
+      grid-template-columns: 1fr 2fr;
+    }
+  } */
+  
