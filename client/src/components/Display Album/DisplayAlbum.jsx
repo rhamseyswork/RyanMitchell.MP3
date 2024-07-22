@@ -3,7 +3,7 @@ import styles from './DisplayAlbum.module.css'
 
 function DisplayAlbum() {
   return (
-    <diV className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.albumContainer}>
         <img
           className={styles.img}
@@ -23,7 +23,7 @@ function DisplayAlbum() {
           <li>2</li>
           <li>3</li>
         </ul>
-    </diV>
+    </div>
   )
 }
 

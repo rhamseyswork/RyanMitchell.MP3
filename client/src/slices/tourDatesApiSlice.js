@@ -4,9 +4,9 @@ import { apiSlice } from "./apiSlice.js";
 export const tourDatesApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getTourDates: builder.query({
-            query: ({ pageNumber, keyword}) => ({
+            query: () => ({
               url: TOUR_DATES_URL,
-              params: { pageNumber, keyword },
+              params: {},
             }),
             keepUnusedDataFor: 5,
             providesTags: ['TourDates'],
