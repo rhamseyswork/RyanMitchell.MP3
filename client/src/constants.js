@@ -5,3 +5,4 @@ export const UPLOADS_URL = '/api/upload';
 export const LINKS_URL = '/api/links';
 export const NEWSLETTER_URL = '/api/newsletter';
 export const TOUR_DATES_URL = '/api/tourdates';
+export const PRODUCTS_URL = '/api/products';
