@@ -10,6 +10,7 @@ const Tickets = () => {
 
   return (
     <>
+    <h3>Tickets</h3>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -26,7 +27,7 @@ const Tickets = () => {
                 gridRow: index % 2 === 0 ? '1' : '2', /* Alternate rows */
                 gridColumn: index % 2 === 0 ? '1' : '2' /* Alternate columns */
               }}
-              />
+              />  
           ))}
         </div>
       )}

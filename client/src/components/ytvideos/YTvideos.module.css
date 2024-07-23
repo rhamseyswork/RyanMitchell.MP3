@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     border-bottom: 15px;
-    background-color: #2e2e2e;
     width: 100%;
     grid-column: span 2;
 }
@@ -17,6 +16,7 @@
     overflow-x: auto; /* Enable horizontal scrolling */
     gap: 16px; /* Gap between videos */
     padding: 16px; /* Padding around videos */
+    border-radius: 20px;
   }
   
   .innerContainer {

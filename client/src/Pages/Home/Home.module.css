@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 25px 25px 0 0;
 }
 
 .container > :nth-child(1) {
@@ -100,9 +100,7 @@
         position: relative;
         font-size: 3.5em;
         top: -1.8em;
-    }
-    .mainTitle ~ * {
-        margin-top: -10%;
+        height: 5%;
     }
     .containerBtn {
         margin: 0px 4vw 3vh ;

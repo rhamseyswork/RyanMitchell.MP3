@@ -85,6 +85,7 @@ function Home() {
         <div>
           <h2 className={styles.mainTitle}>Ryan Mitchell - I AM DEATH. DESTROYER OF WORLDS</h2>
           <Links />
+          <div>1 | 2 | 3</div>
           <p>Choose your preferred music service</p>
           <div
             className={styles.containerBtn}
@@ -120,11 +121,11 @@ function Home() {
           )}
         </div>
       </div>
-      <YTvideos />
         <DisplayAlbum />
         <DisplayTikTok />
+        <YTvideos />
         <Tickets />
-        <Merch />
+        {/* <Merch /> */}
         <SignupForm/>
     </>
   )
